@@ -1,9 +1,14 @@
-"""Optional Anthropic extraction.
+"""Optional LLM extraction (Anthropic or Groq).
 
 The LLM only reads fields; it never makes an approve/reject decision.  Every
 field must come with a verbatim evidence quote.  If the call fails twice we
 return an error and the graph falls back to the regex extractor and flags the
 pack for a person.
+
+Provider selection (first match wins):
+  1. ``LLM_PROVIDER`` env var (``anthropic`` or ``groq``)
+  2. ``ANTHROPIC_API_KEY`` set -> Anthropic
+  3. ``GROQ_API_KEY`` set -> Groq (OpenAI-compatible)
 """
 
 from __future__ import annotations
@@ -17,6 +22,8 @@ from typing import Any, Optional
 from .models import ExtractedQuote
 
 DEFAULT_MODEL = os.environ.get("ANTHROPIC_MODEL", "claude-haiku-5-5")
+GROQ_DEFAULT_MODEL = "openai/gpt-oss-120b"
+GROQ_BASE_URL = "https://api.groq.com/openai/v1"
 
 SYSTEM_PROMPT = """You extract facts from supplier quotations for a garment company.
 Return ONLY a JSON object. Never guess and never invent text.
@@ -178,31 +185,91 @@ def _payload_to_quote(payload: dict[str, Any], model: str) -> ExtractedQuote:
     )
 
 
-def extract_with_llm(text: str, model: str | None = None) -> tuple[Optional[ExtractedQuote], Optional[str]]:
-    """Call Anthropic once, retry once on failure.  Return (quote, error)."""
+def _detect_provider() -> Optional[str]:
+    forced = os.environ.get("LLM_PROVIDER", "").strip().lower()
+    if forced in {"groq", "anthropic"}:
+        return forced
+    if os.environ.get("ANTHROPIC_API_KEY"):
+        return "anthropic"
+    if os.environ.get("GROQ_API_KEY"):
+        return "groq"
+    return None
 
-    api_key = os.environ.get("ANTHROPIC_API_KEY")
-    if not api_key:
-        return None, "ANTHROPIC_API_KEY is not set"
 
+def _call_anthropic(text: str, model: str, api_key: str) -> str:
+    import anthropic
+
+    client = anthropic.Anthropic(api_key=api_key)
+    response = client.messages.create(
+        model=model,
+        max_tokens=2500,
+        temperature=0,
+        system=SYSTEM_PROMPT,
+        messages=[{"role": "user", "content": USER_TEMPLATE.format(text=text)}],
+    )
+    return "".join(block.text for block in response.content if getattr(block, "type", "") == "text")
+
+
+def _call_groq(text: str, model: str, api_key: str) -> str:
+    """Call Groq's OpenAI-compatible chat endpoint with the stdlib only."""
+
+    import json as _json
+    import urllib.request
+    import urllib.error
+
+    body = _json.dumps(
+        {
+            "model": model,
+            "temperature": 0.0,
+            "max_tokens": 2500,
+            "response_format": {"type": "json_object"},
+            "messages": [
+                {"role": "system", "content": SYSTEM_PROMPT},
+                {"role": "user", "content": USER_TEMPLATE.format(text=text)},
+            ],
+        }
+    ).encode("utf-8")
+    request = urllib.request.Request(
+        GROQ_BASE_URL + "/chat/completions",
+        data=body,
+        method="POST",
+    )
+    request.add_header("Content-Type", "application/json")
+    request.add_header("Authorization", f"Bearer {api_key}")
+    request.add_header("User-Agent", "Mozilla/5.0")
+    request.add_header("Accept", "application/json")
     try:
-        import anthropic
-    except ImportError:
-        return None, "the anthropic package is not installed"
+        with urllib.request.urlopen(request, timeout=60) as response:
+            payload = _json.loads(response.read().decode("utf-8"))
+    except urllib.error.HTTPError as exc:
+        detail = exc.read().decode("utf-8", errors="ignore")[:200]
+        raise RuntimeError(f"Groq HTTP {exc.code}: {detail}") from exc
+    return payload["choices"][0]["message"]["content"]
 
-    model = model or DEFAULT_MODEL
+
+def extract_with_llm(text: str, model: str | None = None) -> tuple[Optional[ExtractedQuote], Optional[str]]:
+    """Call the configured LLM once, retry once on failure.  Return (quote, error)."""
+
+    provider = _detect_provider()
+    if provider is None:
+        return None, "no LLM API key is set (ANTHROPIC_API_KEY or GROQ_API_KEY)"
+
+    if provider == "groq":
+        api_key = os.environ.get("GROQ_API_KEY", "")
+        model = model or os.environ.get("GROQ_MODEL", GROQ_DEFAULT_MODEL)
+        caller = _call_groq
+    else:
+        api_key = os.environ.get("ANTHROPIC_API_KEY", "")
+        model = model or DEFAULT_MODEL
+        caller = _call_anthropic
+
+    if not api_key:
+        return None, f"{provider.upper()}_API_KEY is not set"
+
     last_error: Optional[str] = None
-    for attempt in range(2):
+    for _attempt in range(2):
         try:
-            client = anthropic.Anthropic(api_key=api_key)
-            response = client.messages.create(
-                model=model,
-                max_tokens=2500,
-                temperature=0,
-                system=SYSTEM_PROMPT,
-                messages=[{"role": "user", "content": USER_TEMPLATE.format(text=text)}],
-            )
-            raw = "".join(block.text for block in response.content if getattr(block, "type", "") == "text")
+            raw = caller(text, model, api_key)
             payload = json.loads(_strip_json_fence(raw))
             if not isinstance(payload, dict):
                 raise ValueError("LLM did not return a JSON object")

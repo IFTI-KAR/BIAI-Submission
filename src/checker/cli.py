@@ -235,7 +235,7 @@ def main(argv: Optional[list[str]] = None) -> int:
     if not packs:
         parser.error(f"no supplier-pack-*.pdf files in {data_dir}")
 
-    has_key = bool(os.environ.get("ANTHROPIC_API_KEY"))
+    has_key = bool(os.environ.get("ANTHROPIC_API_KEY") or os.environ.get("GROQ_API_KEY"))
     use_llm = has_key and not args.offline
     extractor_mode = "LLM + regex evidence cross-check" if use_llm else "offline regex"
     interactive = args.interactive or (sys.stdin.isatty() and not args.no_interactive)
