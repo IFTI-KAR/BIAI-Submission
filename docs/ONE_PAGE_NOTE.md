@@ -35,7 +35,7 @@ percentages and quantities use `Decimal`, not floats.
 - **CLI test:** writes `report.md`, `report.json` and `eval_summary.json` and
   checks the 10/10 summary.
 
-Run `pytest` to repeat all 73 tests.
+Run `pytest` to repeat all 74 tests.
 
 ## Results
 

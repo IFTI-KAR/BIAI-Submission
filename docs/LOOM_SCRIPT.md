@@ -124,7 +124,7 @@ pytest -q tests/test_adversarial.py
 
 ## Pre-flight checklist
 
-- [ ] `pytest` is green (73 tests).
+- [ ] `pytest` is green (74 tests).
 - [ ] `results/report.md` exists and says 10/10.
 - [ ] Terminal font is large; hide notifications.
 - [ ] Have the pack 09 section open before recording.

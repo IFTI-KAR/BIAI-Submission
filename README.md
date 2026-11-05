@@ -87,7 +87,7 @@ model id (`claude-haiku-5-5`, as specified in the plan).
 pytest
 ```
 
-73 tests cover:
+74 tests cover:
 
 - every reject/review rule and its boundary (exactly 3%, 5%, 20%, 45 days, 30 days, 0.5%);
 - the golden 10/10 decisions and verbatim-evidence assertions;
