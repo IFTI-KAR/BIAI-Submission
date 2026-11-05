@@ -1,0 +1,125 @@
+{
+  "total": 10,
+  "correct": 10,
+  "accuracy": "10/10 (100%)",
+  "rows": [
+    {
+      "pack": "supplier-pack-01",
+      "supplier": "Padma Textile Mills Ltd",
+      "item": "A",
+      "decision": "Approve",
+      "expected": "Approve",
+      "correct": true,
+      "rules": [],
+      "unverified": []
+    },
+    {
+      "pack": "supplier-pack-02",
+      "supplier": "Jamuna Trims and Accessories",
+      "item": "B",
+      "decision": "Approve",
+      "expected": "Approve",
+      "correct": true,
+      "rules": [],
+      "unverified": []
+    },
+    {
+      "pack": "supplier-pack-03",
+      "supplier": "Karnaphuli Yarn Traders",
+      "item": "C",
+      "decision": "Reject",
+      "expected": "Reject",
+      "correct": true,
+      "rules": [
+        "R1"
+      ],
+      "unverified": []
+    },
+    {
+      "pack": "supplier-pack-04",
+      "supplier": "Surma Packaging Industries",
+      "item": "D",
+      "decision": "Needs a person to check",
+      "expected": "Needs a person to check",
+      "correct": true,
+      "rules": [
+        "V1"
+      ],
+      "unverified": []
+    },
+    {
+      "pack": "supplier-pack-05",
+      "supplier": "Meghna Carton Works",
+      "item": "E",
+      "decision": "Reject",
+      "expected": "Reject",
+      "correct": true,
+      "rules": [
+        "R2"
+      ],
+      "unverified": []
+    },
+    {
+      "pack": "supplier-pack-06",
+      "supplier": "Teesta Fabrics Ltd",
+      "item": "A",
+      "decision": "Reject",
+      "expected": "Reject",
+      "correct": true,
+      "rules": [
+        "R3"
+      ],
+      "unverified": []
+    },
+    {
+      "pack": "supplier-pack-07",
+      "supplier": "Rupsha Zipper Factory",
+      "item": "B",
+      "decision": "Needs a person to check",
+      "expected": "Needs a person to check",
+      "correct": true,
+      "rules": [
+        "V2"
+      ],
+      "unverified": []
+    },
+    {
+      "pack": "supplier-pack-08",
+      "supplier": "Bhairab Thread and Co",
+      "item": "C",
+      "decision": "Reject",
+      "expected": "Reject",
+      "correct": true,
+      "rules": [
+        "R4"
+      ],
+      "unverified": []
+    },
+    {
+      "pack": "supplier-pack-09",
+      "supplier": "Dhaleshwari Poly Pack",
+      "item": "D",
+      "decision": "Needs a person to check",
+      "expected": "Needs a person to check",
+      "correct": true,
+      "rules": [
+        "V6",
+        "V3"
+      ],
+      "unverified": []
+    },
+    {
+      "pack": "supplier-pack-10",
+      "supplier": "Kushiyara Box Industries",
+      "item": "E",
+      "decision": "Reject",
+      "expected": "Reject",
+      "correct": true,
+      "rules": [
+        "R5",
+        "V5"
+      ],
+      "unverified": []
+    }
+  ]
+}

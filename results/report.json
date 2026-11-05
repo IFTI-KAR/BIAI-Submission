@@ -1,0 +1,451 @@
+{
+  "generated_at": "2026-11-04T17:44:50.091748+00:00",
+  "extractor": "offline regex",
+  "summary": {
+    "total": 10,
+    "correct": 10,
+    "accuracy": "10/10 (100%)",
+    "rows": [
+      {
+        "pack": "supplier-pack-01",
+        "supplier": "Padma Textile Mills Ltd",
+        "item": "A",
+        "decision": "Approve",
+        "expected": "Approve",
+        "correct": true,
+        "rules": [],
+        "unverified": []
+      },
+      {
+        "pack": "supplier-pack-02",
+        "supplier": "Jamuna Trims and Accessories",
+        "item": "B",
+        "decision": "Approve",
+        "expected": "Approve",
+        "correct": true,
+        "rules": [],
+        "unverified": []
+      },
+      {
+        "pack": "supplier-pack-03",
+        "supplier": "Karnaphuli Yarn Traders",
+        "item": "C",
+        "decision": "Reject",
+        "expected": "Reject",
+        "correct": true,
+        "rules": [
+          "R1"
+        ],
+        "unverified": []
+      },
+      {
+        "pack": "supplier-pack-04",
+        "supplier": "Surma Packaging Industries",
+        "item": "D",
+        "decision": "Needs a person to check",
+        "expected": "Needs a person to check",
+        "correct": true,
+        "rules": [
+          "V1"
+        ],
+        "unverified": []
+      },
+      {
+        "pack": "supplier-pack-05",
+        "supplier": "Meghna Carton Works",
+        "item": "E",
+        "decision": "Reject",
+        "expected": "Reject",
+        "correct": true,
+        "rules": [
+          "R2"
+        ],
+        "unverified": []
+      },
+      {
+        "pack": "supplier-pack-06",
+        "supplier": "Teesta Fabrics Ltd",
+        "item": "A",
+        "decision": "Reject",
+        "expected": "Reject",
+        "correct": true,
+        "rules": [
+          "R3"
+        ],
+        "unverified": []
+      },
+      {
+        "pack": "supplier-pack-07",
+        "supplier": "Rupsha Zipper Factory",
+        "item": "B",
+        "decision": "Needs a person to check",
+        "expected": "Needs a person to check",
+        "correct": true,
+        "rules": [
+          "V2"
+        ],
+        "unverified": []
+      },
+      {
+        "pack": "supplier-pack-08",
+        "supplier": "Bhairab Thread and Co",
+        "item": "C",
+        "decision": "Reject",
+        "expected": "Reject",
+        "correct": true,
+        "rules": [
+          "R4"
+        ],
+        "unverified": []
+      },
+      {
+        "pack": "supplier-pack-09",
+        "supplier": "Dhaleshwari Poly Pack",
+        "item": "D",
+        "decision": "Needs a person to check",
+        "expected": "Needs a person to check",
+        "correct": true,
+        "rules": [
+          "V6",
+          "V3"
+        ],
+        "unverified": []
+      },
+      {
+        "pack": "supplier-pack-10",
+        "supplier": "Kushiyara Box Industries",
+        "item": "E",
+        "decision": "Reject",
+        "expected": "Reject",
+        "correct": true,
+        "rules": [
+          "R5",
+          "V5"
+        ],
+        "unverified": []
+      }
+    ]
+  },
+  "packs": [
+    {
+      "pack": "supplier-pack-01",
+      "decision": "Approve",
+      "supplier_name": "Padma Textile Mills Ltd",
+      "item_code": "A",
+      "findings": [],
+      "human": null,
+      "unverified": [],
+      "extractor": "regex",
+      "error": null,
+      "evidence": {
+        "supplier_name": "Padma Textile Mills Ltd",
+        "item_code": "A Cotton twill fabric, 280 gsm 12,000 metre 472.00 5,664,000.00",
+        "qty": "A Cotton twill fabric, 280 gsm 12,000 metre 472.00 5,664,000.00",
+        "unit_price": "A Cotton twill fabric, 280 gsm 12,000 metre 472.00 5,664,000.00",
+        "line_amount": "A Cotton twill fabric, 280 gsm 12,000 metre 472.00 5,664,000.00",
+        "payment_terms_text": "10% advance payable with the purchase order. Balance payable within 45 days after delivery and acceptance of goods.",
+        "delivery_days": "Delivery within 24 days of receiving the purchase order.",
+        "penalty_text": "Late delivery penalty: 1% of order value for each full week of delay.",
+        "validity_days": "This quotation is valid for 45 days from the date above.",
+        "vat_amount": "VAT 15% 849,600.00",
+        "tin": "Supplier TIN: 101458013391 BIN: 000170141-0101"
+      }
+    },
+    {
+      "pack": "supplier-pack-02",
+      "decision": "Approve",
+      "supplier_name": "Jamuna Trims and Accessories",
+      "item_code": "B",
+      "findings": [],
+      "human": null,
+      "unverified": [],
+      "extractor": "regex",
+      "error": null,
+      "evidence": {
+        "supplier_name": "Jamuna Trims and Accessories",
+        "item_code": "B Metal zipper, 18 cm 20,000 piece 36.00 720,000.00",
+        "qty": "B Metal zipper, 18 cm 20,000 piece 36.00 720,000.00",
+        "unit_price": "B Metal zipper, 18 cm 20,000 piece 36.00 720,000.00",
+        "line_amount": "B Metal zipper, 18 cm 20,000 piece 36.00 720,000.00",
+        "payment_terms_text": "No advance payment required. Full payment within 30 days of delivery.",
+        "delivery_days": "Goods will be delivered at your factory within 21 days from the date of PO.",
+        "penalty_text": "For late delivery the supplier shall pay 0.75% of the order value per week of delay.",
+        "validity_days": "This quotation is valid for 30 days from the date above.",
+        "vat_amount": "VAT 15% 108,000.00",
+        "tin": "Supplier TIN: 102458023391 BIN: 000270241-0101"
+      }
+    },
+    {
+      "pack": "supplier-pack-03",
+      "decision": "Reject",
+      "supplier_name": "Karnaphuli Yarn Traders",
+      "item_code": "C",
+      "findings": [
+        {
+          "rule": "R1",
+          "severity": "REJECT",
+          "message": "unit price 229.00 is 9.05% above the maximum 210.00 (limit 3%)",
+          "evidence": "C Polyester sewing thread, cone 800 cone 229.00 183,200.00"
+        }
+      ],
+      "human": null,
+      "unverified": [],
+      "extractor": "regex",
+      "error": null,
+      "evidence": {
+        "supplier_name": "Karnaphuli Yarn Traders",
+        "item_code": "C Polyester sewing thread, cone 800 cone 229.00 183,200.00",
+        "qty": "C Polyester sewing thread, cone 800 cone 229.00 183,200.00",
+        "unit_price": "C Polyester sewing thread, cone 800 cone 229.00 183,200.00",
+        "line_amount": "C Polyester sewing thread, cone 800 cone 229.00 183,200.00",
+        "payment_terms_text": "15% advance payable with the purchase order. Balance within 40 days of delivery.",
+        "delivery_days": "Delivery within 20 days of PO.",
+        "penalty_text": "Delay in delivery will attract a penalty of 0.5% of order value per week.",
+        "validity_days": "This quotation is valid for 30 days from the date above.",
+        "vat_amount": "VAT 15% 27,480.00",
+        "tin": "Supplier TIN: 103458033391 BIN: 000370341-0101"
+      }
+    },
+    {
+      "pack": "supplier-pack-04",
+      "decision": "Needs a person to check",
+      "supplier_name": "Surma Packaging Industries",
+      "item_code": "D",
+      "findings": [
+        {
+          "rule": "V1",
+          "severity": "REVIEW",
+          "message": "unit price 6.65 is 2.31% above the maximum 6.50, but within the 3% tolerance",
+          "evidence": "D Poly bag, 30 x 40 cm 50,000 piece 6.65 332,500.00"
+        }
+      ],
+      "human": {
+        "status": "pending",
+        "decision": null,
+        "comment": "no interactive reviewer attached; recorded as pending"
+      },
+      "unverified": [],
+      "extractor": "regex",
+      "error": null,
+      "evidence": {
+        "supplier_name": "Surma Packaging Industries",
+        "item_code": "D Poly bag, 30 x 40 cm 50,000 piece 6.65 332,500.00",
+        "qty": "D Poly bag, 30 x 40 cm 50,000 piece 6.65 332,500.00",
+        "unit_price": "D Poly bag, 30 x 40 cm 50,000 piece 6.65 332,500.00",
+        "line_amount": "D Poly bag, 30 x 40 cm 50,000 piece 6.65 332,500.00",
+        "payment_terms_text": "10% advance payable with the purchase order. Payment within 30 days after delivery.",
+        "delivery_days": "Delivery within 28 days of PO.",
+        "penalty_text": "Late delivery penalty of 0.6% of order value per week.",
+        "validity_days": "This quotation is valid for 40 days from the date above.",
+        "vat_amount": "VAT 15% 49,875.00",
+        "tin": "Supplier TIN: 104458043391 BIN: 000470441-0101"
+      }
+    },
+    {
+      "pack": "supplier-pack-05",
+      "decision": "Reject",
+      "supplier_name": "Meghna Carton Works",
+      "item_code": "E",
+      "findings": [
+        {
+          "rule": "R2",
+          "severity": "REJECT",
+          "message": "advance payment is 40%, above the 20% limit",
+          "evidence": "40% advance payable with the purchase order. 40% advance with the purchase order, balance 60% within 30 days of delivery."
+        }
+      ],
+      "human": null,
+      "unverified": [],
+      "extractor": "regex",
+      "error": null,
+      "evidence": {
+        "supplier_name": "Meghna Carton Works",
+        "item_code": "E Carton box, 5-ply 3,000 piece 92.00 276,000.00",
+        "qty": "E Carton box, 5-ply 3,000 piece 92.00 276,000.00",
+        "unit_price": "E Carton box, 5-ply 3,000 piece 92.00 276,000.00",
+        "line_amount": "E Carton box, 5-ply 3,000 piece 92.00 276,000.00",
+        "payment_terms_text": "40% advance payable with the purchase order. 40% advance with the purchase order, balance 60% within 30 days of delivery.",
+        "delivery_days": "Delivery within 25 days of PO.",
+        "penalty_text": "Late delivery penalty of 1% of order value per week.",
+        "validity_days": "This quotation is valid for 30 days from the date above.",
+        "vat_amount": "VAT 15% 41,400.00",
+        "tin": "Supplier TIN: 105458053391 BIN: 000570541-0101"
+      }
+    },
+    {
+      "pack": "supplier-pack-06",
+      "decision": "Reject",
+      "supplier_name": "Teesta Fabrics Ltd",
+      "item_code": "A",
+      "findings": [
+        {
+          "rule": "R3",
+          "severity": "REJECT",
+          "message": "there is no late-delivery penalty clause in the terms",
+          "evidence": "2. Delivery. Delivery within 27 days of PO. 3. Validity. This quotation is valid for 30 days from the date above. 4. Quality. Goods are supplied as per the buyer's approved sample. Defective goods will be replaced at the supplier's cost. 5. Disputes. Any dispute will first be settled by discussion; failing that, through arbitration in Dhaka."
+        }
+      ],
+      "human": null,
+      "unverified": [],
+      "extractor": "regex",
+      "error": null,
+      "evidence": {
+        "supplier_name": "Teesta Fabrics Ltd",
+        "item_code": "A Cotton twill fabric, 280 gsm 12,000 metre 465.00 5,580,000.00",
+        "qty": "A Cotton twill fabric, 280 gsm 12,000 metre 465.00 5,580,000.00",
+        "unit_price": "A Cotton twill fabric, 280 gsm 12,000 metre 465.00 5,580,000.00",
+        "line_amount": "A Cotton twill fabric, 280 gsm 12,000 metre 465.00 5,580,000.00",
+        "payment_terms_text": "10% advance payable with the purchase order. Balance within 60 days of delivery.",
+        "delivery_days": "Delivery within 27 days of PO.",
+        "penalty_text": "2. Delivery. Delivery within 27 days of PO. 3. Validity. This quotation is valid for 30 days from the date above. 4. Quality. Goods are supplied as per the buyer's approved sample. Defective goods will be replaced at the supplier's cost. 5. Disputes. Any dispute will first be settled by discussion; failing that, through arbitration in Dhaka.",
+        "validity_days": "This quotation is valid for 30 days from the date above.",
+        "vat_amount": "VAT 15% 837,000.00",
+        "tin": "Supplier TIN: 106458063391 BIN: 000670641-0101"
+      }
+    },
+    {
+      "pack": "supplier-pack-07",
+      "decision": "Needs a person to check",
+      "supplier_name": "Rupsha Zipper Factory",
+      "item_code": "B",
+      "findings": [
+        {
+          "rule": "V2",
+          "severity": "REVIEW",
+          "message": "quantity 16,500 differs from the requested 20,000 by 17.50% (limit 5%)",
+          "evidence": "B Metal zipper, 18 cm 16,500 piece 35.00 577,500.00"
+        }
+      ],
+      "human": {
+        "status": "pending",
+        "decision": null,
+        "comment": "no interactive reviewer attached; recorded as pending"
+      },
+      "unverified": [],
+      "extractor": "regex",
+      "error": null,
+      "evidence": {
+        "supplier_name": "Rupsha Zipper Factory",
+        "item_code": "B Metal zipper, 18 cm 16,500 piece 35.00 577,500.00",
+        "qty": "B Metal zipper, 18 cm 16,500 piece 35.00 577,500.00",
+        "unit_price": "B Metal zipper, 18 cm 16,500 piece 35.00 577,500.00",
+        "line_amount": "B Metal zipper, 18 cm 16,500 piece 35.00 577,500.00",
+        "payment_terms_text": "No advance payment required. Payment within 45 days of delivery.",
+        "delivery_days": "Delivery within 22 days of PO.",
+        "penalty_text": "Late delivery penalty: 0.5% of order value per week.",
+        "validity_days": "This quotation is valid for 35 days from the date above.",
+        "vat_amount": "VAT 15% 86,625.00",
+        "tin": "Supplier TIN: 107458073391 BIN: 000770741-0101"
+      }
+    },
+    {
+      "pack": "supplier-pack-08",
+      "decision": "Reject",
+      "supplier_name": "Bhairab Thread and Co",
+      "item_code": "C",
+      "findings": [
+        {
+          "rule": "R4",
+          "severity": "REJECT",
+          "message": "the supplier's TIN and BIN are missing",
+          "evidence": "Supplier registration details available on request."
+        }
+      ],
+      "human": null,
+      "unverified": [],
+      "extractor": "regex",
+      "error": null,
+      "evidence": {
+        "supplier_name": "Bhairab Thread and Co",
+        "item_code": "C Polyester sewing thread, cone 800 cone 205.00 164,000.00",
+        "qty": "C Polyester sewing thread, cone 800 cone 205.00 164,000.00",
+        "unit_price": "C Polyester sewing thread, cone 800 cone 205.00 164,000.00",
+        "line_amount": "C Polyester sewing thread, cone 800 cone 205.00 164,000.00",
+        "payment_terms_text": "10% advance payable with the purchase order. Payment within 30 days of delivery.",
+        "delivery_days": "Delivery within 18 days of PO.",
+        "penalty_text": "Late delivery penalty of 0.5% per week of delay.",
+        "validity_days": "This quotation is valid for 30 days from the date above.",
+        "vat_amount": "VAT 15% 24,600.00",
+        "tin": "Supplier registration details available on request."
+      }
+    },
+    {
+      "pack": "supplier-pack-09",
+      "decision": "Needs a person to check",
+      "supplier_name": "Dhaleshwari Poly Pack",
+      "item_code": "D",
+      "findings": [
+        {
+          "rule": "V6",
+          "severity": "REVIEW",
+          "message": "qty x unit price = 320,000.00, but the line amount says 322,000.00",
+          "evidence": "D Poly bag, 30 x 40 cm 50,000 piece 6.40 322,000.00"
+        },
+        {
+          "rule": "V3",
+          "severity": "REVIEW",
+          "message": "payment terms are unclear",
+          "evidence": "5% advance payable with the purchase order. Payment within 30 to 90 days as agreed by both parties."
+        }
+      ],
+      "human": {
+        "status": "pending",
+        "decision": null,
+        "comment": "no interactive reviewer attached; recorded as pending"
+      },
+      "unverified": [],
+      "extractor": "regex",
+      "error": null,
+      "evidence": {
+        "supplier_name": "Dhaleshwari Poly Pack",
+        "item_code": "D Poly bag, 30 x 40 cm 50,000 piece 6.40 322,000.00",
+        "qty": "D Poly bag, 30 x 40 cm 50,000 piece 6.40 322,000.00",
+        "unit_price": "D Poly bag, 30 x 40 cm 50,000 piece 6.40 322,000.00",
+        "line_amount": "D Poly bag, 30 x 40 cm 50,000 piece 6.40 322,000.00",
+        "payment_terms_text": "5% advance payable with the purchase order. Payment within 30 to 90 days as agreed by both parties.",
+        "delivery_days": "Delivery within 4 weeks of PO.",
+        "penalty_text": "Late delivery penalty of 0.5% of order value per week.",
+        "validity_days": "This quotation is valid for 30 days from the date above.",
+        "vat_amount": "VAT 15% 48,300.00",
+        "tin": "Supplier TIN: 109458093391 BIN: 000970941-0101"
+      }
+    },
+    {
+      "pack": "supplier-pack-10",
+      "decision": "Reject",
+      "supplier_name": "Kushiyara Box Industries",
+      "item_code": "E",
+      "findings": [
+        {
+          "rule": "R5",
+          "severity": "REJECT",
+          "message": "delivery is promised in 60 days, later than the 45-day limit",
+          "evidence": "Delivery within 60 days of PO."
+        },
+        {
+          "rule": "V5",
+          "severity": "REVIEW",
+          "message": "VAT is not shown separately at 15%",
+          "evidence": "Item Description Qty Unit Unit price (BDT, VAT included)Amount (BDT)"
+        }
+      ],
+      "human": null,
+      "unverified": [],
+      "extractor": "regex",
+      "error": null,
+      "evidence": {
+        "supplier_name": "Kushiyara Box Industries",
+        "item_code": "E Carton box, 5-ply 3,000 piece 94.00 282,000.00",
+        "qty": "E Carton box, 5-ply 3,000 piece 94.00 282,000.00",
+        "unit_price": "E Carton box, 5-ply 3,000 piece 94.00 282,000.00",
+        "line_amount": "E Carton box, 5-ply 3,000 piece 94.00 282,000.00",
+        "payment_terms_text": "10% advance payable with the purchase order. Payment within 45 days of delivery.",
+        "delivery_days": "Delivery within 60 days of PO.",
+        "penalty_text": "Late delivery penalty of 0.5% of order value per week.",
+        "validity_days": "This quotation is valid for 30 days from the date above.",
+        "vat_amount": "Item Description Qty Unit Unit price (BDT, VAT included)Amount (BDT)",
+        "tin": "Supplier TIN: 110458103391 BIN: 001071041-0101"
+      }
+    }
+  ]
+}
