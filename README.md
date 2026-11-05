@@ -159,7 +159,7 @@ documented in `docs/ONE_PAGE_NOTE.md`.
   the reviewer decision and comment.
 
 See `docs/ONE_PAGE_NOTE.md` for the one-page submission note and
-`docs/LOOM_SCRIPT.md` for the five-minute demo script.
+`docs/LOOM_SCRIPT.md` for the three-minute presentation script.
 
 ## Repository layout
 
@@ -178,5 +178,5 @@ task1-procurement/
     cli.py                  command line, human gate, reports
   tests/                    expected.json + rule, golden, adversarial, CLI tests
   results/                  report.md, report.json, eval_summary.json
-  docs/                     ONE_PAGE_NOTE.md, LOOM_SCRIPT.md
+  docs/                     ONE_PAGE_NOTE.md, LOOM_SCRIPT.md (presentation script)
 ```
