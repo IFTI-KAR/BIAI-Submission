@@ -41,8 +41,8 @@ def _print_table(results: list[PackResult]) -> None:
         table.add_column("Pack", no_wrap=True, min_width=18)
         table.add_column("Supplier")
         table.add_column("Item", no_wrap=True)
-        table.add_column("Decision", no_wrap=True)
-        table.add_column("Reasons", no_wrap=True)
+        table.add_column("Decision")
+        table.add_column("Reasons")
         for result in results:
             rules = ", ".join(sorted({f.rule for f in result.findings})) or "-"
             style = {"Approve": "green", "Reject": "red"}.get(result.decision, "yellow")
