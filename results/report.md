@@ -1,6 +1,6 @@
 # Supplier Document Checker - Results
 
-Generated: 2026-11-05T09:46:57.984612+00:00
+Generated: 2026-11-05T14:55:52.470699+00:00
 Extractor: **offline regex**
 Accuracy vs golden answers: **10/10 (100%)**
 
