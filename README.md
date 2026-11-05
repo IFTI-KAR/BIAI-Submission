@@ -5,6 +5,8 @@ quotations against `purchase-request.csv` and `company-rules.md`, then returns
 **Approve**, **Reject** or **Needs a person to check** with exact quoted
 evidence.
 
+What I built: https://github.com/IFTI-KAR/BIAI-Submission/blob/main/docs/ONE_PAGE_NOTE.md
+
 The LLM is used only to read fields when an Anthropic key is available. Every
 decision is made by plain deterministic Python. When the system is unsure it
 stops and asks a person; it never guesses.
